@@ -1,0 +1,9 @@
+{
+  "name": "twitter-followers-to-csdl",
+  "version": "0.0.1",
+  "description": "Fetch Twitter follower id's and generate CSDL filter.",
+  "author": "Ben",
+  "dependencies": {
+    "ntwitter": "~0.5.0"
+  }
+}
