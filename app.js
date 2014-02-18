@@ -14,6 +14,28 @@ var twit = new twitter({
 
 
 twit.getFollowersIds(config.twitter_id_or_handle, function (err, data) {
-    //if (err) { throw err; }
-    //console.log(data);
+    if (err) {
+        console.log("DEBUG: " + err);
+    } else {
+
+    }
+    console.log("DATA: " + data);
 });
+
+
+var getFollowersIds = function(id, callback) {
+    if (typeof id === 'function') {
+        callback = id;
+        id = null;
+    }
+
+    var params = { key: 'ids' };
+    if (typeof id === 'string')
+        params.screen_name = id;
+    else if (typeof id === 'number')
+        params.user_id = id;
+
+    var url = '/followers/ids.json';
+    twit._getUsingCursor(url, params, callback);
+    return this;
+}
