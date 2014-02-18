@@ -4,8 +4,13 @@
   "description": "Fetch Twitter follower id's and generate CSDL filter.",
   "author": "Ben",
   "dependencies": {
-      "oauth": ">=0.8.4",
-      "cookies": "0.1.x",
-      "keygrip": "0.2.x"
+    "oauth": ">=0.8.4",
+    "cookies": "0.1.x",
+    "keygrip": "0.2.x",
+    "vows": "~0.7.0",
+    "assert": "~1.1.1"
+  },
+  "scripts": {
+    "test": "vows --spec"
   }
 }
