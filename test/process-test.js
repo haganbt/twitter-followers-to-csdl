@@ -18,14 +18,13 @@ var testData ={
   "previous_cursor_str": "-1427440395408150471"
 };
 
-
 vows.describe('Processing a successful data response').addBatch({
     'successfully extracts the id\'s from the response payload': {
          topic: function () {
 	        return processor.getIds(testData);
          },
-        'an obj is returned': function (topic) {
-        	assert.isObject(topic);
+        'an object is returned': function (topic) {
+            assert.isArray(topic);
         }       
    },
    /*
