@@ -3,6 +3,7 @@ var twitter         = require('./lib/twitter')
     , utils 		= require('./lib/utils')
     , config		= utils.loadConfig()
     , processor     = require('./lib/processor')
+    , ds            = require('./lib/datasift')
     ;
 
 var twit = new twitter({
@@ -19,14 +20,16 @@ if(utils.validCache() === false){
 
 twit.getFollowersIds(config.twitter_id_or_handle, function (err, data) {
 
-    if (err && err.statusCode === 429){ // rate limit hit
-        console.log(err);
+    if (err && err.statusCode === 429 && err.data){ // rate limit hit
+        console.log('  -- ' + err.data);
     } else if (err) {
         throw err;
     }
 
     if(data){
-        processor.process(config.twitter_id_or_handle, data);
+        processor.process(config.twitter_id_or_handle, data), function (err, data){
+            console.log(data);
+        }
     }
 
 });

@@ -6,10 +6,11 @@ var   vows 		= require('vows')
 
 vows.describe('DataSift Features').addBatch({
     'compiling CSDL': {
-         topic: function () {
-	        return ds.doCompile('interaction.content any "apple"');
+        topic: function () {
+	        return ds.doCompile('interaction.content any "apple"', this.callback)
          },
         'returns TRUE': function (topic) {
+            //console.log(topic);
         	assert.isObject(topic);
         }       
     }
