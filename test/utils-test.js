@@ -1,6 +1,6 @@
 var   vows 		= require('vows')
     , assert 	= require('assert')
-    , utils   = require('../lib/utils')
+    , utils     = require('../lib/utils')
     ;
 
 vows.describe('Testing utils features').addBatch({
@@ -11,16 +11,13 @@ vows.describe('Testing utils features').addBatch({
         'returns TRUE': function (topic) {
         	assert.isTrue(topic);
         }       
-   },
-   /*
-    'loading a processor that exists': {
+    },
+    'validate a file can be saved': {
          topic: function () { 
-	        return utils.loadProcessor('example');
+	        return utils.saveFile('test-file.txt', 'Test content');
          },
-        'the specified processor is returned': function (topic) {
-        	assert.isFunction(topic);
-        	assert.deepEqual(topic.name, 'Example');
+        'returns TRUE': function (topic) {
+        	assert.isTrue(topic);
         }
-    },    
-    */
+    }
 }).export(module);
