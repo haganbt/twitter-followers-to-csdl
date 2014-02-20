@@ -1,5 +1,7 @@
 {
-    "consumer_key": ""
+    "ds_username": ""
+  , "ds_api_key" : ""
+  , "consumer_key": ""
   , "consumer_secret": ""
   , "access_token_key": ""
   , "access_token_secret": ""
