@@ -27,15 +27,14 @@ vows.describe('Processing a successful data response').addBatch({
             assert.isArray(topic);
         }       
    },
-   /*
-    'loading a processor that exists': {
-         topic: function () { 
-	        return utils.loadProcessor('example');
+	'can compile CSDL from within the processor': {
+         topic: function () {
+	        return processor.getStreamHash('twitter.user.id in [123]', this.callback);
          },
-        'the specified processor is returned': function (topic) {
-        	assert.isFunction(topic);
-        	assert.deepEqual(topic.name, 'Example');
-        }
-    },    
-    */
+        'an object is returned': function (topic) {
+            assert.isObject(topic);
+        	assert.isString(topic.hash);
+        }       
+   }
+   
 }).export(module);
