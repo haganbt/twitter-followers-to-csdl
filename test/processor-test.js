@@ -24,12 +24,12 @@ vows.describe('Processing a successful data response').addBatch({
 	        return processor.getIds(testData);
          },
         'an object is returned': function (topic) {
-            assert.isArray(topic);
+            assert.isString(topic);
         }       
    },
 	'can compile CSDL from within the processor': {
          topic: function () {
-	        return processor.getStreamHash('twitter.user.id in [123]', this.callback);
+	        return processor.getStreamHash('twitter.user.id in ' + processor.getIds(testData), this.callback);
          },
         'an object is returned': function (topic) {
             assert.isObject(topic);
