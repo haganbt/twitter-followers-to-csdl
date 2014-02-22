@@ -19,9 +19,9 @@ var testData ={
 };
 
 vows.describe('Processing a successful data response').addBatch({
-    'successfully extracts the id\'s from the response payload': {
+    'successfully extracts the id\'s to create a CSDL string': {
          topic: function () {
-	        return processor.getIds(testData);
+	        return processor.getCsdl(testData);
          },
         'an object is returned': function (topic) {
             assert.isString(topic);
@@ -29,7 +29,7 @@ vows.describe('Processing a successful data response').addBatch({
    },
 	'can compile CSDL from within the processor': {
          topic: function () {
-	        return processor.getStreamHash('twitter.user.id in ' + processor.getIds(testData), this.callback);
+	        return processor.getStreamHash(processor.getCsdl(testData), this.callback);
          },
         'an object is returned': function (topic) {
             assert.isObject(topic);
