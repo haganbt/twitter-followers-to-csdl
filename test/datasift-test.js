@@ -7,11 +7,11 @@ var   vows 		= require('vows')
 vows.describe('DataSift Features').addBatch({
     'compiling CSDL': {
         topic: function () {
-	        return ds.doCompile('interaction.content any "apple"', this.callback)
+	        return ds.doCompile('interaction.content any "apple"', this.callback);
          },
-        'returns TRUE': function (topic) {
-            //console.log(topic);
+        'returns a hash string': function (topic) {
         	assert.isObject(topic);
+        	assert.isString(topic.hash);
         }       
     }
 }).export(module);
