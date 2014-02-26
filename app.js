@@ -3,7 +3,6 @@ var twitter         = require('./lib/twitter')
     , utils 		= require('./lib/utils')
     , config		= utils.loadConfig()
     , processor     = require('./lib/processor')
-    , ds            = require('./lib/datasift')
     ;
 
 var twit = new twitter({
