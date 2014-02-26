@@ -3,7 +3,7 @@ var   vows 		= require('vows')
     , processor   = require('../lib/processor')
     ;
 
-var testData ="1198847737,63291065,1134736994,248359749,567233838,467602310";
+var testData ={"ids":[1128997034,1061530674,37228122,2179743754,994770710,58467528,862800487,92613363,51261422,2343743176,88733560,360197621,2346682567,20620232,2344754086,25579571,602132105,2301003461,2341372663,2328750822],"next_cursor":1460190974672878800,"next_cursor_str":"1460190974672878817","previous_cursor":0,"previous_cursor_str":"0"};
 
 vows.describe('Processing a successful data response').addBatch({
     'successfully extracts the id\'s to create a CSDL string': {
@@ -12,7 +12,7 @@ vows.describe('Processing a successful data response').addBatch({
          },
         'an string is returned': function (topic) {
             assert.isString(topic);
-            assert.deepEqual(topic, 'twitter.user.id in [' + testData + ']');
+            assert.deepEqual(topic, 'twitter.user.id in [1128997034,1061530674,37228122,2179743754,994770710,58467528,862800487,92613363,51261422,2343743176,88733560,360197621,2346682567,20620232,2344754086,25579571,602132105,2301003461,2341372663,2328750822]');
         }       
    },
 	'can compile CSDL from within the processor': {
@@ -22,7 +22,7 @@ vows.describe('Processing a successful data response').addBatch({
         'returns a JSON object with a valid hash': function (topic) {
             var t = JSON.parse(topic);
         	assert.isString(t.hash);
-        	assert.deepEqual(t.hash, '68b63c11b71ea32bf7ef4a425078e076');
+        	assert.deepEqual(t.hash, '5ded054560fd76a909b243076d332572');
         }       
    }
    
