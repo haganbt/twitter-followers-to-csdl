@@ -24,6 +24,14 @@ vows.describe('Processing a successful data response').addBatch({
         	assert.isString(t.hash);
         	assert.deepEqual(t.hash, '5ded054560fd76a909b243076d332572');
         }       
-   }
+   },
+    'can save ids to memory store': {
+        topic: function () {
+            return processor.setStoreIds(processor.getPayloadIds(testData));
+        },
+        'returns TRUE': function (topic) {
+            assert.isTrue(topic);
+        }
+    }
    
 }).export(module);
