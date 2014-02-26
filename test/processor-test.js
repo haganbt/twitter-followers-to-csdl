@@ -12,7 +12,7 @@ vows.describe('Processing a successful data response').addBatch({
          },
         'an string is returned': function (topic) {
             assert.isString(topic);
-            assert.deepEqual(topic, 'twitter.user.id in [1198847737,63291065,1134736994,248359749,567233838,467602310]');
+            assert.deepEqual(topic, 'twitter.user.id in [' + testData + ']');
         }       
    },
 	'can compile CSDL from within the processor': {
@@ -24,16 +24,6 @@ vows.describe('Processing a successful data response').addBatch({
         	assert.isString(topic.hash);
         	assert.deepEqual(topic.hash, '68b63c11b71ea32bf7ef4a425078e076');
         }       
-   },/*
-	'todo - test processor': {
-         topic: function () {
-	        return processor.process("testing", testData, this.callback);
-         },
-        'an object is returned': function (topic) {
-        	console.log(topic);
-            assert.isObject(topic);
-
-        }       
-   }*/
+   }
    
 }).export(module);
