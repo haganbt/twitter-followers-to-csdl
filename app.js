@@ -27,8 +27,12 @@ twit.getFollowersIds(config.twitter_id_or_handle, function (err, data) {
     }
 
     if(data){
-        processor.process(config.twitter_id_or_handle, data), function (err, data){
-            console.log(data);
+        if(data && data.next_cursor_str && data.next_cursor_str === '0'){
+            console.log('complete');
+        } else {
+            processor.process(config.twitter_id_or_handle, data), function (err, data){
+                console.log(data);
+            }
         }
     }
 
