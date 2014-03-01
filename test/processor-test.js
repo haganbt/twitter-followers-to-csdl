@@ -55,7 +55,7 @@ vows.describe('Processing a successful data response').addBatch({
     'can successfully process stored ids ': {
         topic: function (bigids) {
             // populate the id store
-            var text = fs.readFileSync('./test/test-data.txt', 'utf8');
+            var text = fs.readFileSync('./test/test-data.json', 'utf8');
             processor.setStoreIds(processor.getPayloadIds(JSON.parse(text)));
             return processor.processStoredIds();
         },
