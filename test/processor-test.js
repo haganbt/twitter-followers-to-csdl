@@ -1,6 +1,7 @@
 var   vows      = require('vows')
     , assert    = require('assert')
     , processor = require('../lib/processor')
+    , fs        = require('fs')
     ;
 
 var testData ={"ids":[1128997034,1061530674,37228122,2179743754,994770710,58467528,862800487,92613363,51261422,2343743176,88733560,360197621,2346682567,20620232,2344754086,25579571,602132105,2301003461,2341372663,2328750822],"next_cursor":1460190974672878800,"next_cursor_str":"1460190974672878817","previous_cursor":0,"previous_cursor_str":"0"};
@@ -14,6 +15,7 @@ vows.describe('Processing a successful data response').addBatch({
             assert.isString(topic);
         },
         'an string is returned matching the test id\'s': function (topic) {
+            console.log(topic);
             assert.deepEqual(topic, 'twitter.user.id in [1128997034,1061530674,37228122,2179743754,994770710,58467528,862800487,92613363,51261422,2343743176,88733560,360197621,2346682567,20620232,2344754086,25579571,602132105,2301003461,2341372663,2328750822]');
         }
     },
@@ -48,6 +50,17 @@ vows.describe('Processing a successful data response').addBatch({
         },
         'returns a byte size number > 0': function (topic) {
             assert.strictEqual(topic > 0, true);
+        }
+    },
+    'can successfully process stored ids ': {
+        topic: function (bigids) {
+            // populate the id store
+            var text = fs.readFileSync('./test/test-data.txt', 'utf8');
+            processor.setStoreIds(processor.getPayloadIds(JSON.parse(text)));
+            return processor.processStoredIds();
+        },
+        'returns true': function (topic) {
+            assert.isTrue(topic);
         }
     }
 }).export(module);
