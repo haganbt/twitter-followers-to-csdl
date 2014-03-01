@@ -81,8 +81,14 @@ vows.describe('Processing data features').addBatch({
             processor.setStoreIds(processor.getPayloadIds(JSON.parse(text)));
             return processor.processStoredIds();
         },
-        'returns true': function (topic) {
-            assert.isTrue(topic);
+        'returns an array': function (topic) {
+            assert.isArray(topic);
+        },
+        'successfully subtracts processed ids from the store': function (topic) {
+            //DEBUG: Pre store size: 130000
+            //DEBUG: Extracted : 70300 ids.
+            //DEBUG: Post store size: 59700
+            assert.deepEqual(processor.getStoreCount(), 59700);
         }
     }
 }).export(module);
