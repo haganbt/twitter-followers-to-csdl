@@ -6,7 +6,7 @@ var   vows      = require('vows')
 
 var testData ={"ids":[1128997034,1061530674,37228122,2179743754,994770710,58467528,862800487,92613363,51261422,2343743176,88733560,360197621,2346682567,20620232,2344754086,25579571,602132105,2301003461,2341372663,2328750822],"next_cursor":1460190974672878800,"next_cursor_str":"1460190974672878817","previous_cursor":0,"previous_cursor_str":"0"};
 
-vows.describe('Processing a successful data response').addBatch({
+vows.describe('Processing data features').addBatch({
     'successfully extracts the id\'s to create a CSDL string': {
         topic: function () {
             return processor.getCsdl(testData);
@@ -42,8 +42,8 @@ vows.describe('Processing a successful data response').addBatch({
     },
     'can get the size of the stored data in bytes': {
         topic: function () {
-            processor.setStoreIds(processor.getPayloadIds(testData));
-            return processor.getStoreSize();
+            var dummy = processor.getPayloadIds(testData);
+            return processor.getStoreSize(dummy);
         },
         'returns a byte size number': function (topic) {
             assert.isNumber(topic);
