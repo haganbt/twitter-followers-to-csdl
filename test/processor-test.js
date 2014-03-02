@@ -88,6 +88,7 @@ vows.describe('Processing data features').addBatch({
             //DEBUG: Pre store size: 130000
             //DEBUG: Extracted : 70300 ids.
             //DEBUG: Post store size: 59700
+            console.log(processor.getStoreCount())
             assert.deepEqual(processor.getStoreCount(), 59700);
         }
     }
