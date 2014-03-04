@@ -74,22 +74,22 @@ vows.describe('Processing data features').addBatch({
             assert.deepEqual(topic, 'twitter.user.id in [1128997034,1061530674,37228122,2179743754,994770710,58467528,862800487,92613363,51261422,2343743176,88733560,360197621,2346682567,20620232,2344754086,25579571,602132105,2301003461,2341372663,2328750822]');
         }
     },
-    'can successfully process stored ids ': {
+    'when attempting to process and empty store': {
         topic: function (bigids) {
-            // populate the id store
+            return processor.processStoredIds();
+        },
+        'FALSE is returned': function (topic) {
+            assert.isFalse(topic);
+        }
+    },
+    'processing a store size > 0.7 MB': {
+        topic: function () {
             var text = fs.readFileSync('./test/test-data.json', 'utf8');
             processor.setStoreIds(processor.getPayloadIds(JSON.parse(text)));
             return processor.processStoredIds();
         },
-        'returns an array': function (topic) {
+        'returns store ids and not FALSE': function (topic) {
             assert.isArray(topic);
-        },
-        'successfully subtracts processed ids from the store': function (topic) {
-            //DEBUG: Pre store size: 130000
-            //DEBUG: Extracted : 70300 ids.
-            //DEBUG: Post store size: 59700
-            console.log(processor.getStoreCount())
-            assert.deepEqual(processor.getStoreCount(), 59700);
         }
     }
 }).export(module);
