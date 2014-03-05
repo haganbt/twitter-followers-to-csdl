@@ -10,7 +10,8 @@
     "keygrip": "0.2.x",
     "vows": "~0.7.0",
     "moment": "~2.5.1",
-    "request": "~2.34.0"
+    "request": "~2.34.0",
+    "winston": "~0.7.2"
   },
   "scripts": {
     "test": "vows --spec"
