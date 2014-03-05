@@ -1,18 +1,17 @@
 twitter-followers-to-csdl
 =========================
 
-*STATUS: Work in progress......*
-
-
 ###Description
-Collect follower id's for a specific handle and create a CSDL filter definition.
+Collect follower id's for a specific Twitter handle or id and create a DataSift CSDL filter definition.
+
+If a Twitter rate limit is hit, the script will retry every minute.
 
 
 ###Install
 
 1) Rename ```example.config.json``` to ```config.json```
 
-2) If you have not done so already, register an application at https://apps.twitter.com/
+2) If you have not done so already, register an application at https://apps.twitter.com/ to generate access credentials.
 
 2) Edit config.json and enter required details.
 
