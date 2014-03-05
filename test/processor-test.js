@@ -75,7 +75,7 @@ vows.describe('Processing data features').addBatch({
         }
     },
     'when attempting to process and empty store': {
-        topic: function (bigids) {
+        topic: function () {
             return processor.processStoredIds();
         },
         'FALSE is returned': function (topic) {
