@@ -6,8 +6,9 @@ Collect follower id's for a specific Twitter handle or id and create a DataSift 
 
 If a Twitter rate limit is hit, the script will retry every minute.
 
-Two files are generated as output - one listing all collected user id's and the another listing all generated CSDL. This means that if the script is stopped before completion, a current data is persisted.
+Two files are generated as output - one listing all collected user id's and the another listing all generated CSDL. This means that if the script is stopped before completion, all current data is persisted.
 
+The script continuously tests the size of the collected user ids and compiles the data with DataSift once full (~0.7MB).
 
 ###Install
 
