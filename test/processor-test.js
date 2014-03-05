@@ -94,10 +94,24 @@ vows.describe('Processing data features').addBatch({
     },
     'when saving a stream hash': {
         topic: function () {
-            return processor.setHash('d067aea250d1f7deea78fddf824a9c2e');
+            return processor.setHash('1234');
         },
         'TRUE is returned': function (topic) {
             assert.isTrue(topic);
         }
+    },
+    'when getting all saved hash\'s': {
+        topic: function() {
+            processor.setHash('5678');
+            processor.setHash('91011');
+            return processor.getHashString();
+        },
+        'a string is returned': function (topic) {
+            assert.isString(topic);
+        },
+        'valid CSDL is returned': function (topic) {
+            assert.deepEqual(topic, 'stream "1234" OR stream "5678" OR stream "91011"');
+        }
     }
+
 }).export(module);
