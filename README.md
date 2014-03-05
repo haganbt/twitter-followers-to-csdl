@@ -28,3 +28,11 @@ To run:
 ```node app.js```
 
 All output data will be written to the ```/cache``` directory.
+
+
+###todo
+
+Pull request welcome for all improvements :)
+
+ * Add logging levels
+ * Make file write async
