@@ -91,5 +91,13 @@ vows.describe('Processing data features').addBatch({
         'returns store ids and not FALSE': function (topic) {
             assert.isArray(topic);
         }
+    },
+    'when saving a stream hash': {
+        topic: function () {
+            return processor.setHash('d067aea250d1f7deea78fddf824a9c2e');
+        },
+        'TRUE is returned': function (topic) {
+            assert.isTrue(topic);
+        }
     }
 }).export(module);
