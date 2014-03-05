@@ -35,5 +35,6 @@ All output data will be written to the ```/cache``` directory.
 
 Pull request welcome for all improvements :)
 
- * Add logging levels
+ * Add logging levels to make default less verbose
  * Make file write async
+ * make retry backoff smarter
