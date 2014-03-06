@@ -3,7 +3,16 @@ var twitter     = require('./lib/twitter')
     , utils     = require('./lib/utils')
     , config    = utils.loadConfig()
     , processor = require('./lib/processor')
+    , winston   = require('winston')
     ;
+    ;
+
+var logger = new (winston.Logger)({
+    transports: [
+        new (winston.transports.Console)({ level: config.log_level })
+    ]
+});
+
 
 var twit = new twitter({
     consumer_key: config.consumer_key,
@@ -20,14 +29,14 @@ if (utils.validCache() === false) {
 twit.getFollowersIds(config.twitter_id_or_handle, function (err, data) {
 
     if (err && err.statusCode === 429 && err.data) { // rate limit hit
-        console.log('  -- ' + err.data);
+        logger.info('      - '  + err.data);
     } else if (err) {
         throw err;
     }
 
     if (data) {
         processor.process(config.twitter_id_or_handle, data), function (err, data){
-            console.log(data);
+            logger.info(data);
         }
     }
 
