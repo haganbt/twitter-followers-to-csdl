@@ -40,9 +40,9 @@ To run:
 
 All output data will be written to the ```/cache``` directory. Two files are created:
 
- *```<twitter_handle>-ids.log`` - a list of all id's retrieved from Twitter.
+ * ```<twitter_handle>-ids.log`` - a list of all id's retrieved from Twitter.
 
- *```<twitter_handle>.csdl.log`` - output generated CSDL of compiled filters.
+ * ```<twitter_handle>.csdl.log`` - output generated CSDL of compiled filters.
 
 
 ###todo
