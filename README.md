@@ -16,7 +16,7 @@ The script continuously tests the size of the collected user ids and compiles th
 
 2) If you have not done so already, register an application at https://apps.twitter.com/ to generate access credentials.
 
-2) Edit config.json and enter required details.
+3) Edit config.json and enter the Twitter application creds generated from #2 above, your DataSift API details and the Twitter account id or handle..
 
 ###Run Tests
 
