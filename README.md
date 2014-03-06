@@ -51,3 +51,4 @@ Pull request welcome for all improvements :)
 
  * Make file write async
  * make retry backoff smarter
+ * basic analytics
