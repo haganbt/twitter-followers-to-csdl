@@ -24,7 +24,6 @@ The script continuously tests the size of the collected user ids and compiles th
  * ```consumer_secret``` - Twitter Consumer Secret
  * ```access_token_key``` - Twitter Access Token Key
  * ```access_token_secret``` - Twitter Access Token Secret
- * ```twitter_id_or_handle``` - the twitter handle or id of the user account to collect followers for
  * ```log_level``` - info or debug
 
 
@@ -36,7 +35,7 @@ The script continuously tests the size of the collected user ids and compiles th
 
 To run:
 
-```node app.js```
+```node app.js <twitter_id_or_handle>```
 
 All output data will be written to the ```/cache``` directory. Two files are created:
 
