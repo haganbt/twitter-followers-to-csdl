@@ -9,7 +9,7 @@ var twitter     = require('./lib/twitter')
 
 // collect the twitter id or handle from the cmd
 var args = process.argv.slice(2);
-if (!args[0] || args[0] === '') {
+if (!args[0] || args[0] === '' || args[0] === 'undefined') {
     throw new Error('FAIL: You must specify a twitter id or handle after the script name.');
 }
 
@@ -41,7 +41,7 @@ twit.getFollowersIds(args[0], function (err, data) {
     }
 
     if (data) {
-        processor.process(config.twitter_id_or_handle, data), function (err, data){
+        processor.process(args[0], data), function (err, data){
             logger.info(data);
         }
     }
