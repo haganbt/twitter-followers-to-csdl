@@ -10,6 +10,8 @@ Two files are generated as output - one listing all collected user id's and the 
 
 The script continuously tests the size of the collected user ids and compiles the data with DataSift once full (~0.7MB).
 
+See http://www.benh.co.uk/datasift/twitter-followers-to-datasift-filter/ for further info.
+
 ###Install & Config
 
 1) Rename ```example.config.json``` to ```config.json```
