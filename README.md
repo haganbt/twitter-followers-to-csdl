@@ -2,11 +2,11 @@ twitter-followers-to-csdl
 =========================
 
 ###Description
-Collect follower id's for a specific Twitter handle or id and create a DataSift CSDL filter definition.
+Collect follower ids and/or friend ids for a specific Twitter handle or id and create a DataSift CSDL filter definition for one or both.
 
 If a Twitter rate limit is hit, the script will retry every minute.
 
-Two files are generated as output - one listing all collected user id's and the another listing all generated CSDL. This means that if the script is stopped before completion, all current data is persisted.
+Two files are generated as output for each cacse- one listing all collected user id's and the another listing all generated CSDL. This means that if the script is stopped before completion, all current data is persisted.
 
 The script continuously tests the size of the collected user ids and compiles the data with DataSift once full (~0.7MB).
 
@@ -37,13 +37,16 @@ See http://www.benh.co.uk/datasift/twitter-followers-to-datasift-filter/ for fur
 
 To run:
 
-```node app.js <twitter_id_or_handle>```
+```node app.js <twitter_id_or_handle> <optional:type>```
+type: friends -- collects the ids followed by the twiter_id
+type: both -- collects both followers and friends
+type: blank or anything else -- just collects followers
 
-All output data will be written to the ```/cache``` directory. Two files are created:
+All output data will be written to the ```/cache``` directory. Two files are created for each case:
 
- * ```<twitter_handle>-ids.log`` - a list of all id's retrieved from Twitter.
+ * ```<twitter_handle>-type-ids.log`` - a list of all id's retrieved from Twitter.
 
- * ```<twitter_handle>.csdl.log`` - output generated CSDL of compiled filters.
+ * ```<twitter_handle>-type.csdl.log`` - output generated CSDL of compiled filters.
 
 
 ###todo
